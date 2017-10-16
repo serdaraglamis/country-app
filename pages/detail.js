@@ -21,7 +21,7 @@ class Detail extends React.Component {
       <Layout title={`Country Detail ${this.props.countryDetail.name} - Rest Country App`} page="detail">
         <div className="country">
           <div className="country--header">
-            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code}.png`} alt="" />
+            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code.toLocaleLowerCase()}.png`} alt="" />
             <a target="blank" className="country--header-name">{this.props.countryDetail.name}<span>@{this.props.countryDetail.alpha2Code}</span></a>
           </div>
           <div className="row">

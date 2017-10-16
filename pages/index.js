@@ -56,7 +56,7 @@ class Search extends React.Component {
               {this.filteredCountries().map(country => (
                 <div key={country.numericCode} className="list-group-item list-group-item-action col-md-4 col-sm-12" onClick={() => this.goToDetails(country)}>
                   <div className="card-block">
-                    <img className="country-flag" src={`/static/images/flags/${country.alpha2Code}.png`}/>
+                    <img className="country-flag" src={`/static/images/flags/${country.alpha2Code.toLocaleLowerCase()}.png`}/>
                     <h6 className="card-subtitle mb-2 text-muted">{country.name}</h6>
                     <hr/>
                     <p className="card-text"><b>Capital:</b> {country.capital}</p>
