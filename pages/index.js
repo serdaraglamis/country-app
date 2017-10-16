@@ -30,7 +30,7 @@ class Search extends React.Component {
   }
 
   inputChanged(event) {
-    this.props.handleSearchInput(event.target.value);
+    this.props.handleSearchInput(event.target.value.toLocaleLowerCase());
   }
 
 
