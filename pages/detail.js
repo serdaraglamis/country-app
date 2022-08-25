@@ -6,6 +6,11 @@ import fetch from 'isomorphic-unfetch';
 import { initStore, setCountryDetail } from '../store';
 import Layout from '../components/MyLayout';
 
+String.prototype.replaceAll = function(search, replacement) {
+  var target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 class Detail extends React.Component {
   static async getInitialProps({ store, query, req }) {
     const countryDetail = store.getState().countryDetail;
@@ -21,7 +26,7 @@ class Detail extends React.Component {
       <Layout title={`Country Detail ${this.props.countryDetail.name} - Rest Country App`} page="detail">
         <div className="country">
           <div className="country--header">
-            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code.toLocaleLowerCase()}.png`} alt="" />
+            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code.toLocaleLowerCase().replaceAll('ı','i')}.png`} alt="" />
             <a target="blank" className="country--header-name">{this.props.countryDetail.name}<span>@{this.props.countryDetail.alpha2Code}</span></a>
           </div>
           <div className="row">
