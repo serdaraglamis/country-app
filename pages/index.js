@@ -16,7 +16,7 @@ import {
 class Search extends React.Component {
   static async getInitialProps({ store, query, req }) {
     if(!store.getState().countries.length > 0) {
-      const countriesPromise = await fetch(`https://restcountries.eu/rest/v2/all`, {
+      const countriesPromise = await fetch(`https://restcountries.com/v2/all`, {
         method: 'GET'});
       const countryData = await countriesPromise.json();
       await store.dispatch(addAllCountries(countryData));
