@@ -10,7 +10,7 @@ class Detail extends React.Component {
   static async getInitialProps({ store, query, req }) {
     const countryDetail = store.getState().countryDetail;
     if (!countryDetail) {
-      const countryDetailPromise = await fetch(`https://restcountries.eu/rest/v2/alpha/${query.id}`, { method: 'GET'});
+      const countryDetailPromise = await fetch(`https://restcountries.com/v2/alpha/${query.id}`, { method: 'GET'});
       const dispatchData = await countryDetailPromise.json();
       store.dispatch(setCountryDetail(dispatchData));
     }
