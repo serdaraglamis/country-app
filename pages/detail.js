@@ -96,6 +96,7 @@ class Detail extends React.Component {
             border-radius: 5px;
             float: left;
             margin-right: 10px;
+            width: 128px;
           }
           .country--header-name {
             font-weight: bold;
