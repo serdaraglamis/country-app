@@ -50,5 +50,6 @@ Project uses a number of open source projects to work properly:
 
 ### TODOS
 - Write Tests
+- Multi Language (https://react.i18next.com/)
 
 Updated by Ramazan Sancar - 2022 August | Created by Serdar AGLAMIS  - 2017 October
