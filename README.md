@@ -9,8 +9,8 @@ Project live version can be found at https://country-app-zeta.vercel.app/
 for detail you can use syntax with 2 or 3 characted unicode query strings or absolute paths like:
 
 You can reach a country by country code directly
-https://country-app-zeta.vercel.app/detail?id=TR
-https://country-app-zeta.vercel.app/detail/TR
+- https://country-app-zeta.vercel.app/detail?id=TR
+- https://country-app-zeta.vercel.app/detail/TR
 Both of them are same
 
 If you loaded page from server side (first requests, other requests are done by client side) right click from your browser and select view-source you'll see the rendered app
