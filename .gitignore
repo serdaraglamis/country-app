@@ -1,6 +1,5 @@
 node_modules/
 .next/
-node_modules/
-.next/
 .idea
+.git/
 package-lock.json
