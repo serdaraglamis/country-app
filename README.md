@@ -3,14 +3,14 @@
 This is a basic country list app. You can filter countries by it's name.
 
 ### Live Version
-Project live version can be found at https://rest-countries.herokuapp.com/
+Project live version can be found at https://country-app-zeta.vercel.app/
 ### Url Paths & Query Strings
 
 for detail you can use syntax with 2 or 3 characted unicode query strings or absolute paths like:
 
 You can reach a country by country code directly
-https://rest-countries.herokuapp.com/detail?id=TR
-https://rest-countries.herokuapp.com/detail/TR
+https://country-app-zeta.vercel.app/detail?id=TR
+https://country-app-zeta.vercel.app/detail/TR
 Both of them are same
 
 If you loaded page from server side (first requests, other requests are done by client side) right click from your browser and select view-source you'll see the rendered app
@@ -51,4 +51,4 @@ Project uses a number of open source projects to work properly:
 ### TODOS
 - Write Tests
 
-Created by Serdar AGLAMIS  - 2017 October
+Updated by Ramazan Sancar - 2022 August | Created by Serdar AGLAMIS  - 2017 October
