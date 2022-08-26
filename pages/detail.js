@@ -44,7 +44,7 @@ class Detail extends React.Component {
             </div>
             <div className="col-md-3 col-sm-6">
               <p className="country--body">Calling Code</p>
-              <div className="country--detail">{this.props.countryDetail.callingCodes[0]}</div>
+              <div className="country--detail">{'+'+this.props.countryDetail.callingCodes[0]}</div>
             </div>
           </div>
           <div className="row">
