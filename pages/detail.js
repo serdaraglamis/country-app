@@ -6,11 +6,16 @@ import fetch from 'isomorphic-unfetch';
 import { initStore, setCountryDetail } from '../store';
 import Layout from '../components/MyLayout';
 
+String.prototype.replaceAll = function(search, replacement) {
+  var target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
+};
+
 class Detail extends React.Component {
   static async getInitialProps({ store, query, req }) {
     const countryDetail = store.getState().countryDetail;
     if (!countryDetail) {
-      const countryDetailPromise = await fetch(`https://restcountries.eu/rest/v2/alpha/${query.id}`, { method: 'GET'});
+      const countryDetailPromise = await fetch(`https://restcountries.com/v2/alpha/${query.id}`, { method: 'GET'});
       const dispatchData = await countryDetailPromise.json();
       store.dispatch(setCountryDetail(dispatchData));
     }
@@ -21,7 +26,7 @@ class Detail extends React.Component {
       <Layout title={`Country Detail ${this.props.countryDetail.name} - Rest Country App`} page="detail">
         <div className="country">
           <div className="country--header">
-            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code.toLocaleLowerCase()}.png`} alt="" />
+            <img className="country--header-flag" src={`/static/images/flags/${this.props.countryDetail.alpha2Code.toLocaleLowerCase().replaceAll('ı','i')}.png`} alt="" />
             <a target="blank" className="country--header-name">{this.props.countryDetail.name}<span>@{this.props.countryDetail.alpha2Code}</span></a>
           </div>
           <div className="row">
@@ -39,7 +44,7 @@ class Detail extends React.Component {
             </div>
             <div className="col-md-3 col-sm-6">
               <p className="country--body">Calling Code</p>
-              <div className="country--detail">{this.props.countryDetail.callingCodes[0]}</div>
+              <div className="country--detail">{'+'+this.props.countryDetail.callingCodes[0]}</div>
             </div>
           </div>
           <div className="row">
@@ -91,6 +96,7 @@ class Detail extends React.Component {
             border-radius: 5px;
             float: left;
             margin-right: 10px;
+            width: 128px;
           }
           .country--header-name {
             font-weight: bold;

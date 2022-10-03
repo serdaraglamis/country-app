@@ -12,11 +12,15 @@ import {
   setCountryDetail
 } from '../store';
 
+String.prototype.replaceAll = function(search, replacement) {
+  var target = this;
+  return target.replace(new RegExp(search, 'g'), replacement);
+};
 
 class Search extends React.Component {
   static async getInitialProps({ store, query, req }) {
     if(!store.getState().countries.length > 0) {
-      const countriesPromise = await fetch(`https://restcountries.eu/rest/v2/all`, {
+      const countriesPromise = await fetch(`https://restcountries.com/v2/all`, {
         method: 'GET'});
       const countryData = await countriesPromise.json();
       await store.dispatch(addAllCountries(countryData));
@@ -56,7 +60,7 @@ class Search extends React.Component {
               {this.filteredCountries().map(country => (
                 <div key={country.numericCode} className="list-group-item list-group-item-action col-md-4 col-sm-12" onClick={() => this.goToDetails(country)}>
                   <div className="card-block">
-                    <img className="country-flag" src={`/static/images/flags/${country.alpha2Code.toLocaleLowerCase()}.png`}/>
+                    <img className="country-flag" src={`/static/images/flags/${country.alpha2Code.toLocaleLowerCase().replaceAll('ı','i')}.png`}/>
                     <h6 className="card-subtitle mb-2 text-muted">{country.name}</h6>
                     <hr/>
                     <p className="card-text"><b>Capital:</b> {country.capital}</p>
